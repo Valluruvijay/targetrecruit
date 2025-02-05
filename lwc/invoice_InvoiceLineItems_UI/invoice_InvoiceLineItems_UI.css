@@ -1,0 +1,17 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 5px 0;
+}
+
+span {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+a {
+    cursor: pointer;
+    color: blue;
+}

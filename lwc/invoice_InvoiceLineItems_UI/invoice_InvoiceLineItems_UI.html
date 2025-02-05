@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Invoices">
+        <template if:true={invoices}>
+            <ul>
+                <template for:each={invoices} for:item="invoice">
+                    <li key={invoice.Id}>
+                        <span onclick={handleInvoiceClick} data-id={invoice.Id}>{invoice.Name}</span>
+
+                        <template if:true={invoice.isExpanded}>
+                            <ul>
+                                <template for:each={invoice.lineItems} for:item="lineItem">
+                                    <li key={lineItem.Id}>{lineItem.Name}</li>
+                                </template>
+                                <template if:true={invoice.hasMore}>
+                                    <li><a href="javascript:void(0);" onclick={handleLoadMore} data-id={invoice.Id}>View More</a></li>
+                                </template>
+                            </ul>
+                        </template>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:true={error}>
+            <p>{error}</p>
+        </template>
+    </lightning-card>
+</template>
